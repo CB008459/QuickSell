@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sale Page</title>
+    <script src="scripts/pro.js"></script>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/splash.css">
+</head>
+    <body id="body">
+      <div class="splash1">
+        <div class="cont_main">
+          <h1>QuickSell Marketing Site</h1>
+        </div>
+        <div class="cont_img">
+          <img src="images/stay_tuned.png" alt="">
+        </div>
+      </div>
+      <div class="fullsite">
+        <h1>Webpage Under Development</h1>
+        <div class="container2">
+          <img src="images/construction.png" alt="">
+          <div class="timer">
+            <h1>available in </h1>
+            <div class="countdown">
+              <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="seconds"></span>Seconds</li>
+              </ul>
+            </div>
+            <h1>Get Ready!</h1>
+          </div>
+        </div>
+        <div class="menu">
+          <div>
+            <a href="index.html">Go to Home</a>
+            <a href="property.html">View Properties</a>  
+          </div>
+        </div>
+      </div>
+    </body>
+    <script src="scripts/app.js"></script>
+    <script>
+      (function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+  let final = "Jan 4, 2021 00:00:00",
+      countDown = new Date(final).getTime(),
+      x = setInterval(function() {    
+
+        let now = new Date().getTime(),
+            distance = countDown - now;
+
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+      }, 0)
+  }());
+
+      const splash = document.querySelector('.splash1')
+
+      document.addEventListener('DOMContentLoaded', (e)=>{
+        setTimeout(() => {
+          splash.classList.add('display-none');
+        }, 2500);
+      })
+    </script>
+</html>
